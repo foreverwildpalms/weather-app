@@ -2,18 +2,19 @@ import MainLayout from "../components/MainLayout";
 import styles from "../styles/Main.module.scss";
 import Card from "../components/Card";
 import {FC} from "react";
+import getDate from "../components/utils/getDate";
 
 interface HomeProps {
-    data: any;
+    data: any
 }
 
 const Home: FC<HomeProps> = ({data}) => {
-    console.log(data);
+    const date = getDate();
 
     return (
     <MainLayout title="Главная">
         <div className={styles.container}>
-            <Card data={data} />
+            <Card data={data} date={date} />
         </div>
     </MainLayout>
     )
@@ -24,7 +25,9 @@ export async function getServerSideProps() {
     const data = await response.json();
 
     return {
-        props: {data}
+        props: {
+            data
+        }
     }
 }
 

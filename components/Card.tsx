@@ -4,21 +4,20 @@ import Search from "./Search";
 import PlaceAndTime from "./PlaceAndTime";
 import Degrees from "./Degrees";
 import OtherData from "./OtherData";
-import theme from "./theme/theme";
+import theme from "./utils/theme";
 
 interface CardProps {
-    data: any
+    data: any,
+    date: any
 }
 
-const Card: FC<CardProps> = ({data}) => {
-    const currentTheme = theme(200
-        // data.weather[0].id
-    );
+const Card: FC<CardProps> = ({data, date}) => {
+    const currentTheme = theme(data.weather[0].id);
 
     return (
         <div className={styles[currentTheme.class]}>
             <Search />
-            <PlaceAndTime data={data.weather[0]} />
+            <PlaceAndTime data={data.weather[0]} date={date} />
             <Degrees data={data.main} icon={currentTheme.icon} />
             <OtherData data={{...data.main, wind: data.wind}} />
         </div>
