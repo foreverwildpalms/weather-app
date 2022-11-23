@@ -1,3 +1,4 @@
 ## Weather App
 
-Check the current weather on any city on the planet.
+Weather app with themes. Check the current weather in Saint Petersburg
+Next. js + React + TypeScript + SCSS
