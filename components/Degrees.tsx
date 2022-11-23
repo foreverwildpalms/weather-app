@@ -1,10 +1,11 @@
 import styles from '../styles/Degrees.module.scss';
-import {FC} from "react";
+import React, {FC} from "react";
 import Image from "next/image";
+import {Data} from '../types/types';
 
 interface DegreesProps {
-    data: any,
-    icon: any
+    data: Data,
+    icon: string
 }
 
 const Degrees: FC<DegreesProps> = ({data, icon}) => {

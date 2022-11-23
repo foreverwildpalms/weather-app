@@ -1,25 +1,25 @@
 import MainLayout from "../components/MainLayout";
 import styles from "../styles/Main.module.scss";
 import Card from "../components/Card";
-import React, {FC, useContext} from "react";
-import getDate from "../components/utils/getDate";
-import AppProvider, {AppContext} from "../components/AppContext";
+import React, {FC} from "react";
+import getDate from "../utils/getDate";
+import {Data} from '../types/types';
 
 interface HomeProps {
-    data: any
+    data: Data
 }
 
 const Home: FC<HomeProps> = ({data}) => {
     const date = getDate();
 
+    console.log(data);
+
     return (
-        <AppProvider>
-            <MainLayout title="Главная">
-                <div className={styles.container}>
-                    <Card data={data} date={date} />
-                </div>
-            </MainLayout>
-        </AppProvider>
+        <MainLayout title="Главная">
+            <div className={styles.container}>
+                <Card data={data} date={date} />
+            </div>
+        </MainLayout>
     )
 }
 
@@ -29,7 +29,11 @@ export async function getServerSideProps() {
 
     return {
         props: {
-            data
+            data: {
+                ...data.main,
+                ...data.wind,
+                weather: data.weather[0],
+            }
         }
     }
 }

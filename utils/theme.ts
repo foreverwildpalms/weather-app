@@ -1,8 +1,8 @@
-import Clouds from '../../public/icons/cloudy.svg';
-import Rain from '../../public/icons/rainy.svg';
-import Snow from '../../public/icons/snowy.svg';
-import Thunderstorm from '../../public/icons/thunderstorm.svg';
-import Sunny from '../../public/icons/sunny.svg';
+import Clouds from '../public/icons/cloudy.svg';
+import Rain from '../public/icons/rainy.svg';
+import Snow from '../public/icons/snowy.svg';
+import Thunderstorm from '../public/icons/thunderstorm.svg';
+import Sunny from '../public/icons/sunny.svg';
 
 
 const theme = (id: any) => {

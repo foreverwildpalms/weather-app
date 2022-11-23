@@ -1,9 +1,10 @@
 import styles from '../styles/PlaceAndTime.module.scss';
 import {FC} from "react";
+import {Weather} from '../types/types';
 
 interface DegreesProps {
-    data: any,
-    date: any
+    data: Weather,
+    date: string
 }
 
 const PlaceAndTime: FC<DegreesProps> = ({data, date}) => {

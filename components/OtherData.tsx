@@ -3,14 +3,15 @@ import Image from "next/image";
 import Drop from '../public/icons/drop.svg';
 import Wind from '../public/icons/wind.svg';
 import {FC} from "react";
+import {Data} from '../types/types';
 
 interface OtherDataProps {
-    data: any
+    data: Data
 }
 
 const OtherData:FC<OtherDataProps> = ({data}) => {
     const humidity = data.humidity;
-    const wind = data.wind.speed;
+    const wind = data.speed;
 
     return (
         <div className={styles.wrapper}>
