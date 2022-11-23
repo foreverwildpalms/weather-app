@@ -1,6 +1,5 @@
 import React, {FC} from 'react';
 import styles from "../styles/Main.module.scss";
-import Search from "./Search";
 import PlaceAndTime from "./PlaceAndTime";
 import Degrees from "./Degrees";
 import OtherData from "./OtherData";
@@ -16,7 +15,6 @@ const Card: FC<CardProps> = ({data, date}) => {
 
     return (
         <div className={styles[currentTheme.class]}>
-            <Search />
             <PlaceAndTime data={data.weather[0]} date={date} />
             <Degrees data={data.main} icon={currentTheme.icon} />
             <OtherData data={{...data.main, wind: data.wind}} />

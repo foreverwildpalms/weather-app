@@ -1,8 +1,9 @@
 import MainLayout from "../components/MainLayout";
 import styles from "../styles/Main.module.scss";
 import Card from "../components/Card";
-import {FC} from "react";
+import React, {FC, useContext} from "react";
 import getDate from "../components/utils/getDate";
+import AppProvider, {AppContext} from "../components/AppContext";
 
 interface HomeProps {
     data: any
@@ -12,11 +13,13 @@ const Home: FC<HomeProps> = ({data}) => {
     const date = getDate();
 
     return (
-    <MainLayout title="Главная">
-        <div className={styles.container}>
-            <Card data={data} date={date} />
-        </div>
-    </MainLayout>
+        <AppProvider>
+            <MainLayout title="Главная">
+                <div className={styles.container}>
+                    <Card data={data} date={date} />
+                </div>
+            </MainLayout>
+        </AppProvider>
     )
 }
 
